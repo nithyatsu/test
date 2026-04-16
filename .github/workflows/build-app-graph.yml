@@ -13,8 +13,8 @@ permissions:
 
 jobs:
   build-graph:
-    uses: nithyatsu/radius/.github/workflows/__build-app-graph.yml@github-demo
+    uses: nithyatsu/radius/.github/workflows/__build-app-graph.yml@pr-graph-view-fix
     with:
       app_file: app.bicep
       orphan_branch: radius-graph
-      workflow_source_ref: github-demo
+      workflow_source_ref: pr-graph-view-fix
