@@ -158,3 +158,4 @@ resource database 'Applications.Datastores/redisCaches@2023-10-01-preview' = {
     environment: environment
   }
 }
+
