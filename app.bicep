@@ -20,33 +20,6 @@ resource app 'Applications.Core/applications@2023-10-01-preview' = {
   }
 }
 
-resource frontend 'Applications.Core/containers@2023-10-01-preview' = {
-  name: 'frontend'
-  location: location
-  properties: {
-    application: app.id
-    container: {
-      image: magpieimage
-      ports: {
-        web: {
-          containerPort: port
-        }
-      }
-      readinessProbe: {
-        kind: 'httpGet'
-        containerPort: port
-        path: '/healthz'
-      }
-    }
-    connections: {
-      backend: {
-        source: 'http://backend:3000'
-      }
-    }
-  }
-}
-
-
 resource backend 'Applications.Core/containers@2023-10-01-preview' = {
   name: 'backend'
   location: location
