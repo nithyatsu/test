@@ -1,0 +1,20 @@
+# .github/workflows/build-app-graph.yml
+name: Build Application Graph
+
+on:
+  push:
+    branches: [main]
+    paths: [app.bicep]
+  pull_request:
+    paths: [app.bicep]
+
+permissions:
+  contents: write
+
+jobs:
+  build-graph:
+    uses: radius-project/radius/.github/workflows/__build-app-graph.yml@github-demo
+    with:
+      app_file: app.bicep
+      orphan_branch: radius-graph
+      workflow_source_ref: github-demo
